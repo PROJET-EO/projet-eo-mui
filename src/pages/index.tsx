@@ -1,9 +1,7 @@
-import styles from '@/styles/Home.module.css';
-
 export default function Home() {
   return (
-    <>
-      <h1>ProjetEO</h1>
-    </>
-  )
+    <div className='w-screen h-screen bg-blue-400'>
+      <h1 className='text-red-500'>ProjetEO</h1>
+    </div>
+  );
 }
