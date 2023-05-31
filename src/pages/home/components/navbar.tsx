@@ -15,13 +15,14 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { heiColor } from '../../../common/ui/heiColor';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -29,7 +30,7 @@ const Search = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(3),
     width: 'auto',
-  },
+  }
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -40,10 +41,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  color:heiColor.yellow
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color:heiColor.yellow,
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -122,7 +124,7 @@ export function NavBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <MailIcon sx={{ color:heiColor.yellow }} />
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -134,7 +136,7 @@ export function NavBar() {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <NotificationsIcon sx={{ color:heiColor.yellow }} />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -147,7 +149,7 @@ export function NavBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <AccountCircle sx={{ color:heiColor.yellow }} />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -156,7 +158,7 @@ export function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: heiColor.blue }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -164,6 +166,7 @@ export function NavBar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            sx={{ color:heiColor.yellow }}
           >
             <MenuIcon />
           </IconButton>
@@ -171,7 +174,7 @@ export function NavBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block', color:heiColor.yellow } }}
           >
             PROJET_EO
           </Typography>
@@ -188,7 +191,7 @@ export function NavBar() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
-                <MailIcon />
+                <MailIcon sx={{ color:heiColor.yellow }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -197,7 +200,7 @@ export function NavBar() {
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+                <NotificationsIcon sx={{ color:heiColor.yellow }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -207,7 +210,7 @@ export function NavBar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              sx={{ color:heiColor.yellow }}
             >
               <AccountCircle />
             </IconButton>
@@ -219,7 +222,7 @@ export function NavBar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              sx={{ color:heiColor.yellow }}
             >
               <MoreIcon />
             </IconButton>
