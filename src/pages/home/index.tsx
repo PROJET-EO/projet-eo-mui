@@ -1,8 +1,11 @@
-
+import { Stack } from "@mui/material";
+import NavBar from "./components/navbar";
 
 function Home() {
   return (
-    <div>NavBar</div>
+    <Stack>
+        <NavBar/>
+    </Stack>
   )
 }
 
