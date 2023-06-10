@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import NavBar from "./components/navbar";
+import NavBar from "@/common/components/navbar";
 
 function Home() {
   return (
