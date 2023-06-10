@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent } from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,18 +16,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { heiColor } from '../ui/heiColor';
-import Search from '@/pages/home/styles/search';
+import Search from '@/pages/home/styles/search-bar';
+import SearchIconWrapper from '@/pages/home/styles/search-icon';
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color:heiColor.yellow
-}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color:heiColor.yellow,
