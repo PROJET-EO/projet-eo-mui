@@ -100,7 +100,7 @@ export function NavBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
     </Menu>
   );
 
@@ -165,8 +165,7 @@ export function NavBar() {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
-            sx={{ color:heiColor.yellow }}
+            sx={{ mr: 2, color:heiColor.yellow }}
           >
             <MenuIcon />
           </IconButton>
