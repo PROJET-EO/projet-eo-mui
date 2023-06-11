@@ -19,6 +19,7 @@ import RenderMenu from './components/RenderMenu';
 import { menuId } from './utils/menuId';
 import { mobileMenuId } from './utils/menuId';
 import RenderMobileMenu from './components/RenderMobileMenu';
+import SideBar from '../sidebar/sidebar';
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -40,7 +41,12 @@ const NavBar = () => {
     handleMobileMenuClose();
   };
 
+
+
+  // For the Side Bar Drawer
+  const [open, setOpen] = React.useState(false);
   const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
+    setOpen(true);
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -116,6 +122,7 @@ const NavBar = () => {
           </Box>
         </Toolbar>
       </AppBar>
+      <SideBar open={open} setOpen={setOpen} />
       <RenderMobileMenu handleMobileMenuClose={handleMobileMenuClose} isMobileMenuOpen={isMobileMenuOpen} handleProfileMenuOpen={handleProfileMenuOpen} mobileMoreAnchorEl={mobileMoreAnchorEl}  />
       <RenderMenu anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
     </Box>
