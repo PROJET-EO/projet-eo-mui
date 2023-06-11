@@ -1,5 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
-import AppBar from '@mui/material/AppBar';
+import React, { useState, MouseEvent, ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -19,8 +18,16 @@ import RenderMenu from './components/RenderMenu';
 import { menuId } from './utils/menuId';
 import { mobileMenuId } from './utils/menuId';
 import RenderMobileMenu from './components/RenderMobileMenu';
+import SideBar from '../sidebar/sidebar';
+import { AppBar } from '../sidebar/components/AppBar';
+import { DrawerHeader } from '../sidebar/components/DrawerHeader';
+import { Main } from '../sidebar/components/Main';
 
-const NavBar = () => {
+type NavBarProps = {
+  children?: ReactNode;
+}
+
+const NavBar = ({children}:NavBarProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -44,16 +51,24 @@ const NavBar = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  
+  // For the Side Bar Drawer
+  const [open, setOpen] = React.useState<boolean>(false);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: heiColor.blue }}>
+      <AppBar position="static" sx={{ backgroundColor: heiColor.blue }} open={open} >
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2, color:heiColor.yellow }}
+            sx={{ mr: 2, color:heiColor.yellow, ...(open && { display: 'none' }) }}
+            onClick={handleDrawerOpen}
           >
             <MenuIcon />
           </IconButton>
@@ -116,8 +131,13 @@ const NavBar = () => {
           </Box>
         </Toolbar>
       </AppBar>
+      <SideBar open={open} setOpen={setOpen} />
       <RenderMobileMenu handleMobileMenuClose={handleMobileMenuClose} isMobileMenuOpen={isMobileMenuOpen} handleProfileMenuOpen={handleProfileMenuOpen} mobileMoreAnchorEl={mobileMoreAnchorEl}  />
       <RenderMenu anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
+      <Main open={open}>
+        <DrawerHeader />
+        {children}
+      </Main>
     </Box>
   );
 }
