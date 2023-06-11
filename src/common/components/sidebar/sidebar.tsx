@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -13,8 +13,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { DrawerHeader } from './components/DrawerHeader';
+import { drawerWidth } from './utils/drawerWith';
 
-export const drawerWidth = 240;
 
 
 type SideBarProps = {
@@ -29,8 +29,6 @@ const SideBar = ({open, setOpen}:SideBarProps) => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-    
     return ( 
         <Drawer
             sx={{
@@ -52,7 +50,7 @@ const SideBar = ({open, setOpen}:SideBarProps) => {
             </DrawerHeader>
             <Divider />
             <List >
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['New Project', 'Projects', 'Theme', 'Event'].map((text, index) => (
                 <ListItem key={text} disablePadding>
                 <ListItemButton>
                     <ListItemIcon>
@@ -65,7 +63,7 @@ const SideBar = ({open, setOpen}:SideBarProps) => {
             </List>
             <Divider />
             <List>
-            {['Dialy', 'Trash', 'Spam'].map((text, index) => (
+            {['Daily Challenge', 'LeaderBoard'].map((text, index) => (
                 <ListItem key={text} disablePadding>
                 <ListItemButton>
                     <ListItemIcon>
