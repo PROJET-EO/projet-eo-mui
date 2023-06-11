@@ -17,6 +17,8 @@ import { heiColor } from '../../ui/heiColor';
 import Search from './styles/search-bar';
 import SearchIconWrapper from './styles/search-icon';
 import StyledInputBase from './styles/search-input-base';
+import RenderMenu from './components/RenderMenu';
+import { menuId } from './utils/menuId';
 
 
 const NavBar = () => {
@@ -42,28 +44,6 @@ const NavBar = () => {
   const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
-    </Menu>
-  );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -190,7 +170,7 @@ const NavBar = () => {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
+      <RenderMenu anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
     </Box>
   );
 }
