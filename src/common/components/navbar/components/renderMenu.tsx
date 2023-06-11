@@ -1,9 +1,9 @@
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import AnchorProvider, { AnchorContext } from '../context/anchorContext';
 
-
-export const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+const [anchorEl, setAnchorEl] = useContext(AnchorContext)
 export const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
 export const isMenuOpen = Boolean(anchorEl);
@@ -20,24 +20,26 @@ export const handleMobileMenuClose = () => {
 
 export const menuId = 'primary-search-account-menu';
 const renderMenu = (
-  <Menu
-    anchorEl={anchorEl}
-    anchorOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    id={menuId}
-    keepMounted
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    open={isMenuOpen}
-    onClose={handleMenuClose}
-  >
-    <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-    <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
-  </Menu>
+  <AnchorProvider>
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Log out</MenuItem>
+    </Menu>
+  </AnchorProvider>
 );
 
 export default renderMenu;

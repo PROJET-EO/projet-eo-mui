@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 
-export const AnchorContext = createContext<null | HTMLElement>(null);
+export const AnchorContext = createContext<[null | HTMLEmbedElement, React.Dispatch<React.SetStateAction<null | HTMLEmbedElement>>]>([null, () => {}]);
+
 
 type IAnchorProvider = {
     children: ReactNode;
