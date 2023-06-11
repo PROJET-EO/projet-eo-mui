@@ -14,6 +14,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { DrawerHeader } from './components/DrawerHeader';
 import { drawerWidth } from './utils/drawerWith';
+import { heiColor } from '@/common/ui/heiColor';
 
 
 
@@ -37,23 +38,25 @@ const SideBar = ({open, setOpen}:SideBarProps) => {
             '& .MuiDrawer-paper': {
                 width: drawerWidth,
                 boxSizing: 'border-box',
-            },
+                backgroundColor:heiColor.blue
+            }
             }}
             variant="persistent"
             anchor="left"
             open={open}
         >
-            <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-                {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-            </IconButton>
+            <DrawerHeader sx={{ backgroundColor:heiColor.blue }} >
+                <IconButton onClick={handleDrawerClose} sx={{ color:heiColor.yellow }} >
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                </IconButton>
             </DrawerHeader>
-            <Divider />
-            <List >
+            <Divider sx={{ backgroundColor:heiColor.yellow }} />
+            <List sx={{
+            backgroundColor:heiColor.blue}}>
             {['New Project', 'Projects', 'Theme', 'Event'].map((text, index) => (
-                <ListItem key={text} disablePadding>
+                <ListItem key={text} disablePadding sx={{ color:heiColor.yellow }} >
                 <ListItemButton>
-                    <ListItemIcon>
+                    <ListItemIcon sx={{ color:heiColor.yellow }} >
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                     </ListItemIcon>
                     <ListItemText primary={text} />
@@ -61,12 +64,12 @@ const SideBar = ({open, setOpen}:SideBarProps) => {
                 </ListItem>
             ))}
             </List>
-            <Divider />
-            <List>
+            <Divider sx={{ backgroundColor:heiColor.yellow }} />
+            <List sx={{ backgroundColor:heiColor.blue }} >
             {['Daily Challenge', 'LeaderBoard'].map((text, index) => (
-                <ListItem key={text} disablePadding>
-                <ListItemButton>
-                    <ListItemIcon>
+                <ListItem key={text} disablePadding sx={{ color:heiColor.yellow }} >
+                <ListItemButton >
+                    <ListItemIcon sx={{ color:heiColor.yellow }} >
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                     </ListItemIcon>
                     <ListItemText primary={text} />
