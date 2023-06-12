@@ -46,80 +46,67 @@ const NavBar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: heiColor.blue }}>
+      <AppBar position='static' sx={{ backgroundColor: heiColor.blue }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2, color:heiColor.yellow }}
-          >
+          <IconButton size='large' edge='start' color='inherit' aria-label='open drawer' sx={{ mr: 2, color: heiColor.yellow }}>
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block', color:heiColor.yellow } }}
-          >
+          <Typography variant='h6' noWrap component='div' sx={{ display: { xs: 'none', sm: 'block', color: heiColor.yellow } }}>
             PROJET_EO
           </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
+            <StyledInputBase placeholder='Search…' inputProps={{ 'aria-label': 'search' }} />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon sx={{ color:heiColor.yellow }} />
+            <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
+              <Badge badgeContent={4} color='error'>
+                <MailIcon sx={{ color: heiColor.yellow }} />
+              </Badge>
+            </IconButton>
+            <IconButton size='large' aria-label='show 17 new notifications' color='inherit'>
+              <Badge badgeContent={17} color='error'>
+                <NotificationsIcon sx={{ color: heiColor.yellow }} />
               </Badge>
             </IconButton>
             <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon sx={{ color:heiColor.yellow }} />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
+              size='large'
+              edge='end'
+              aria-label='account of current user'
               aria-controls={menuId}
-              aria-haspopup="true"
+              aria-haspopup='true'
               onClick={handleProfileMenuOpen}
-              sx={{ color:heiColor.yellow }}
+              sx={{ color: heiColor.yellow }}
             >
               <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="show more"
+              size='large'
+              aria-label='show more'
               aria-controls={mobileMenuId}
-              aria-haspopup="true"
+              aria-haspopup='true'
               onClick={handleMobileMenuOpen}
-              sx={{ color:heiColor.yellow }}
+              sx={{ color: heiColor.yellow }}
             >
               <MoreIcon />
             </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
-      <RenderMobileMenu handleMobileMenuClose={handleMobileMenuClose} isMobileMenuOpen={isMobileMenuOpen} handleProfileMenuOpen={handleProfileMenuOpen} mobileMoreAnchorEl={mobileMoreAnchorEl}  />
+      <RenderMobileMenu
+        handleMobileMenuClose={handleMobileMenuClose}
+        isMobileMenuOpen={isMobileMenuOpen}
+        handleProfileMenuOpen={handleProfileMenuOpen}
+        mobileMoreAnchorEl={mobileMoreAnchorEl}
+      />
       <RenderMenu anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
     </Box>
   );
-}
+};
 
 export default NavBar;
