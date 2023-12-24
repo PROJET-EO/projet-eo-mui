@@ -25,6 +25,7 @@
     "immer": "^10.0.2",
     "next": "13.3.4",
     "react": "18.2.0",
+    "cookies-next": "^4.1.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
